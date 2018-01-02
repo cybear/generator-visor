@@ -41,6 +41,7 @@ module.exports = class extends Generator {
     const authors = this.props.authors.split(',');
     authors
     .map(author => author.trim())
+    .filter(author => author) // avoid empty authors
       .map(author =>
         this.fs.copyTpl(
           this.templatePath('author.md'),
